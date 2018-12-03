@@ -1,0 +1,13 @@
+propertyName = value
+depth_of_field=
+resolution_x=
+resolution_y=
+field_of_view=
+field_of_view_x=
+field_of_view_y=
+lens_unit=MILLIMETERS
+focal_length=
+sensor_height=
+sensor_width=
+exposure_time=
+aperture=
