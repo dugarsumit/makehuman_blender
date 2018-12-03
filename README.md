@@ -1,21 +1,27 @@
 # makehuman_blender
 
-This project helps you create random human poses using makehuman and generate their rgbd data using blender.
+This project helps you create random human poses with the help of Makehuman and then generates their rgbd data using Blender.
 
-1) generatePoses.py : Run this script in makehuman. It will generate different variations from basic poses.
+## Dependencies
+-  Makehuman
+-  Blender
 
-2) generateViews.py : Run this script in blender. It will render rgbd images of poses from different camera views. It will also generate rgb images with body parts segmented and labeled in the form of different colors. Open Blender from commandline in order to see print statements and errors from this script.
+## File Description
+1) **generatePoses.py** - Run this script inside makehuman's python console. It will generate different variations of human poses based on parameters like age, gender, height, weight etc. These variations are generated from a provided seed pose.
 
-3) basicPose.mhm : Put this file in input_poses directory under base directory poseSamples. It is the basic pose
-from which variations will be generated. Make sure this human model has default skeleton. Any other skeleton type will break the createPose script.
+2) **generateViews.py** - Run this script inside blender's python console. It will render depth images of poses from different camera views. It will also generate rgb images in which body parts are color coded. Open Blender from commandline in order to see print statements and errors from this script.
 
-4) camera_positions.txt : Put this file in input_files folder under base directory poseSamples. It contains parameters for controlling various camera orientations.
+3) **basicPose.mhm** - Put this file in input_poses directory under the base directory poseSamples. It is the basic pose
+from which variations will be generated. Make sure this human model has **default skeleton**. Any other skeleton type will break the generatePose script.
 
-5) pose_parameters.txt : Put this file in input_files folder under base directory poseSamples. It contains various human parameters that can be modelled.
+4) **camera_positions.txt** - Put this file in input_files folder under the base directory poseSamples. It contains parameters for controlling various camera orientations.
 
-6) camera_properties.txt : This file lets you set different camera parameters like focal lenght, sensor size etc. Put this file in the input_files folder.
+5) **pose_parameters.txt** - Put this file in input_files folder under the base directory poseSamples. It contains various human model parameters such as age, gender, height, weight etc based on which pose variations are generated.
 
-7) vertex_groups.txt : This file defines a mapping between vertiex groups and their correspoding color depiction. Put this file in the input_files folder. Following rgb values are currently used :
+6) **camera_properties.txt** - This file lets you set different camera parameters like focal lenght, sensor size etc. Put this file in the input_files folder.
+
+7) **vertex_groups.txt** - This file defines a mapping between vertiex groups and their correspoding color depiction. Put this file in the input_files folder. Following rgb values are currently being used.
+```
    Torso            : 0,255,0
    Head             : 0,0,255
    Upper left arm   : 255,0,0
@@ -26,14 +32,14 @@ from which variations will be generated. Make sure this human model has default 
    Upper right leg  : 100,100,0
    Lower left leg   : 0,255,255
    Lower right leg  : 0,100,100
-   
-8) output file format : 
-    RGB images : human_<pose variation number>_<image type>_<camera view number>.png        : human_0_rgb_3.png
-    Depth data : human_<pose variation number>_<image type>_<camera view number>_0001.exr   : human_0_depth_3_0001.exr
+```
+## Output File Format 
+RGB images : human_<pose variation number>_<image type>_<camera view number>.png        : human_0_rgb_3.png
+Depth data : human_<pose variation number>_<image type>_<camera view number>_0001.exr   : human_0_depth_3_0001.exr
 
 Create a following directory structure and change the paths in both the scripts accordingly. Put files from
 inputData into appropriate folders before running the scripts.
-
+```
 poseSamples
 ├── dae_files
 │   ├── human_0.dae
@@ -96,3 +102,4 @@ poseSamples
     ├── female_casualsuit01_ao.png
     ├── female_casualsuit01_diffuse.png
     └── female_casualsuit01_normal.png
+```
