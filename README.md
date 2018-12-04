@@ -1,6 +1,6 @@
 # A tool for generating RGB and depth images of human poses
 
-This project helps you create random human poses with the help of Makehuman and then generates their rgbd data using Blender.
+This project helps you create random human poses with the help of Makehuman and then generates their rgb and depth data using Blender. The main motivation for this project was scarcity of existing datasets for human body segmentation from depth images. The data generation pipeline is capable of generating different body types and poses and thus creating a varied and large database of depth and segmented images.
 
 ![](flow.png)  
 For more details read section 3.2 of this [report](https://dugarsumit.github.io/files/idp-report.pdf)
