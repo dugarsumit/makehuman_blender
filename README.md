@@ -34,7 +34,7 @@ from which variations will be generated. Make sure this human model has **defaul
    Lower right leg  : 0,100,100
 ```
 ## Output File Format 
-RGB images : human_<pose variation number>_<image type>_<camera view number>.png        : human_0_rgb_3.png
+RGB images : human_<pose variation number>_<image type>_<camera view number>.png        : human_0_rgb_3.png  
 Depth data : human_<pose variation number>_<image type>_<camera view number>_0001.exr   : human_0_depth_3_0001.exr
 
 Create a following directory structure and change the paths in both the scripts accordingly. Put files from
