@@ -2,6 +2,8 @@
 
 This project helps you create random human poses with the help of Makehuman and then generates their rgbd data using Blender.
 
+![](flow.png)
+
 ## Dependencies
 -  Makehuman
 -  Blender
