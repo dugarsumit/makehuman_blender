@@ -37,69 +37,10 @@ from which variations will be generated. Make sure this human model has **defaul
 RGB images : human_<pose variation number>_<image type>_<camera view number>.png        : human_0_rgb_3.png  
 Depth data : human_<pose variation number>_<image type>_<camera view number>_0001.exr   : human_0_depth_3_0001.exr
 
-Create a following directory structure and change the paths in both the scripts accordingly. Put files from
-inputData into appropriate folders before running the scripts.
-```
-poseSamples
-├── dae_files
-│   ├── human_0.dae
-│   ├── human_1.dae
-│   ├── pose9.dae
-│   └── textures
-│       └── brown_eye.png
-├── input_files
-│   ├── camera_positions.txt
-│   └── pose_parameters.txt
-├── input_poses
-│   ├── basepose.mhm
-│   └── basepose.thumb
-├── mhx2
-│   ├── human_0.mhx2
-│   ├── human_1.mhx2
-│   ├── myfile.mhx12
-│   ├── pose1.mhx12
-│   ├── pose2.mhx2
-│   ├── sumit.mhx2
-│   └── textures
-│       ├── brown_eye.png
-│       ├── female_casualsuit01_ao.png
-│       ├── female_casualsuit01_diffuse.png
-│       ├── female_casualsuit01_normal.png
-│       ├── male_casualsuit02_ao.png
-│       ├── male_casualsuit02_diffuse.png
-│       └── male_casualsuit02_normal.png
-├── posed_mh
-│   ├── human_0.mhm
-│   └── human_1.mhm
-├── readme.txt
-├── render_data
-│   ├── human_0_rgb_0.png
-│   ├── human_0_rgb_1.png
-│   ├── human_0_rgb_2.png
-│   ├── human_0_rgb_3.png
-│   ├── human_0_rgbd_00001.png
-│   ├── human_0_rgbd_10001.png
-│   ├── human_0_rgbd_20001.png
-│   ├── human_0_rgbd_30001.png
-│   ├── human_1_rgb_0.png
-│   ├── human_1_rgb_1.png
-│   ├── human_1_rgb_2.png
-│   ├── human_1_rgb_3.png
-│   ├── human_1_rgbd_00001.png
-│   ├── human_1_rgbd_10001.png
-│   ├── human_1_rgbd_20001.png
-│   ├── human_1_rgbd_30001.png
-│   ├── pose9_rgb_0.png
-│   ├── pose9_rgb_1.png
-│   ├── pose9_rgb_2.png
-│   ├── pose9_rgb_3.png
-│   ├── pose9_rgbd_00001.png
-│   ├── pose9_rgbd_10001.png
-│   ├── pose9_rgbd_20001.png
-│   └── pose9_rgbd_30001.png
-└── textures
-    ├── brown_eye.png
-    ├── female_casualsuit01_ao.png
-    ├── female_casualsuit01_diffuse.png
-    └── female_casualsuit01_normal.png
-```
+## How to use?
+Follow the below steps and make sure to make appropriate path changes in the scripts.
+1. Manually create a human pose in the Makehuman software. Make sure this human model has the **default skeleton** structure as any other skeleton type will break the generatePose script. Export the model as .mhm file and place it in the `input_poses` folder. You may also need to install an extra .mhm plugin in Makehuman for this.
+2. Add pose variation parmeters in the `pose_parameters.txt` file. All the parameters mentioned in this file will be used for varitions. This is the complete list of parameters currently supported by the script - `age, gender, height, muscle, weight, asianVal, africanVal, caucasianVal, breastsize`.
+3. Change the base path accordingly in `generatePoses.py` and run this script in makehuman's python console. This will generate multiple poses of your provided base pose and save them in the `posed_mh` folder. It will also export the generated poses in the .dae format in `dae_files` folder. This format is required for importing these poses into blender for further processing.
+4. Now comes the difficult part of manually choosing the camera parameters and it's initial position. Choose these values according to the needs of your scene perspective. Set these values in the `camera_properties.txt` and `camera_positions.txt` files.
+5. Change the base path accordingly in `generateViews.py` and run this script in blender's python console. For every pose present in `posed_mh` folder this script will render rgb and depth data of 360 degree views around the model from the provided camera positions. The rendered output will be stored in `render_data` folder. 
