@@ -1,4 +1,4 @@
-# makehuman_blender
+# A tool for generating RGB and depth images of human poses
 
 This project helps you create random human poses with the help of Makehuman and then generates their rgbd data using Blender.
 
