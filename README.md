@@ -42,7 +42,7 @@ Depth data : human_<pose variation number>_<image type>_<camera view number>_000
 
 ## How to use?
 Follow the below steps and make sure to make appropriate path changes in the scripts.
-1. Manually create a human pose in the Makehuman software. Make sure this human model has the **default skeleton** structure as any other skeleton type will break the generatePose script. Save the model as .mhm file and place it in the `input_poses` folder. You may also need to install an extra .mhx2 plugin in Makehuman for this.
+1. Manually create a human pose in the Makehuman software. Make sure this human model has the **default skeleton** structure as any other skeleton type will break the generatePose script. Save the model as .mhm file and place it in the `input_poses` folder. 
 2. Add pose variation parmeters in the `pose_parameters.txt` file. All the parameters mentioned in this file will be used for varitions. This is the complete list of parameters currently supported by the script - `age, gender, height, muscle, weight, asianVal, africanVal, caucasianVal, breastsize`.
 3. Change the base path accordingly in `generatePoses.py` and run this script in makehuman's python console. This will generate multiple poses of your provided base pose and save them in the `posed_mh` folder. It will also export the generated poses in the .dae format in `dae_files` folder. This format is required for importing these poses into blender for further processing.
 4. Now comes the difficult part of manually choosing the camera parameters and it's initial position. Choose these values according to the needs of your scene perspective. Set these values in the `camera_properties.txt` and `camera_positions.txt` files.
